@@ -1,0 +1,51 @@
+{
+  "name": "ai2pdf-backend",
+  "version": "1.0.0",
+  "description": "Ai2PDF Backend API for free Node.js hosting",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist --external:mysql2",
+    "start": "node dist/index.js",
+    "dev": "tsx server/index.ts",
+    "deploy": "npm run build && echo 'Backend built successfully!'",
+    "db:push": "drizzle-kit push",
+    "db:migrate": "drizzle-kit migrate"
+  },
+  "dependencies": {
+    "@types/multer": "^2.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "drizzle-orm": "^0.39.1",
+    "drizzle-zod": "^0.7.0",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "memorystore": "^1.6.7",
+    "multer": "^2.0.2",
+    "mysql2": "^3.14.3",
+    "nanoid": "^5.1.5",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "razorpay": "^2.9.6",
+    "ws": "^8.18.0",
+    "zod": "^3.24.2",
+    "zod-validation-error": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.9",
+    "@types/express": "4.17.21",
+    "@types/express-session": "^1.18.0",
+    "@types/node": "20.16.11",
+    "@types/passport": "^1.0.16",
+    "@types/passport-local": "^1.0.38",
+    "@types/ws": "^8.5.13",
+    "drizzle-kit": "^0.31.4",
+    "esbuild": "^0.25.0",
+    "tsx": "^4.19.1",
+    "typescript": "5.6.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
